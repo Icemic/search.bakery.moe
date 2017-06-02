@@ -11,6 +11,7 @@ const log4js = require('log4js');
 const through2 = require('through2');
 const mongoose = require('mongoose');
 const redis = require('./utils/redis');
+const cors = require('kcors');
 
 
 const CONFIG = require('./config/config');
@@ -77,6 +78,7 @@ logger.info('Server starting...');
   app.use(mount('/dist', static(path.resolve(__dirname, '../client/dist'))))
   app.use(mount('/static', static(path.resolve(__dirname, '../client/static'))))
   app.use(bodyParser());
+  app.use(cors());
 
   // auto-load routes
   const routeList = [];

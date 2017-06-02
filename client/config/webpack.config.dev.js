@@ -11,5 +11,9 @@ module.exports = merge(baseWebpackConfig, {
         NODE_ENV: JSON.stringify('development')
       }
     }),
+    new webpack.HotModuleReplacementPlugin(),
+    // 开启全局的模块热替换(HMR)
+
+    new webpack.NamedModulesPlugin(),
   ]
 });

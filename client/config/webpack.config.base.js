@@ -1,14 +1,15 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
+const postcssConfig = require('./postcss.config');
 const sourcePath = path.resolve(__dirname, '../src');
 const outputPath = path.resolve(__dirname, '../dist/');
 
 module.exports = {
   // 入口文件
   entry: {
-    'index' : path.join(sourcePath, 'app.js'),
-    vendor: ['react', 'react-dom', 'whatwg-fetch'],
+    'index': path.join(sourcePath, 'app.js'),
+    vendor: ['react', 'react-dom', 'whatwg-fetch', 'babel-polyfill'],
   },
   // 出口文件
   output: {
@@ -36,15 +37,22 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: ['css-loader']
+          use: [
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            { loader: 'postcss-loader', options: postcssConfig }
+          ]
         }),
       },
       {
         test: /\.less$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: ['css-loader', 'less-loader']
-        })
+          use: [
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            'less-loader',
+            { loader: 'postcss-loader', options: postcssConfig }
+          ]
+        }),
       },
     ]
   },
@@ -62,5 +70,11 @@ module.exports = {
       minChunks: Infinity,
       filename: '[name].js'
     }),
-  ]
+  ],
+  devServer: {
+    contentBase: 'client/static/',
+    historyApiFallback: true,
+    hot: true,
+    // publicPath: "/assets/",
+  }
 };
