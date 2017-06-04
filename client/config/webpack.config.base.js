@@ -14,7 +14,7 @@ module.exports = {
   // 出口文件
   output: {
     path: outputPath,
-    publicPath: '/static/dist/',
+    publicPath: '/dist/',
     filename: '[name].js',
   },
   module: {
