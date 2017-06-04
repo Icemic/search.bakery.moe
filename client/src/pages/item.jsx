@@ -1,8 +1,10 @@
 import React from 'react'
 import ItemList from '../components/itemList';
+import ItemDetail from '../components/itemDetail';
 import './item.less';
 
 import { dispatch } from '../utils/store';
+import CONFIG from '../utils/config';
 
 export default class Item extends React.PureComponent {
   constructor(props) {
@@ -22,7 +24,7 @@ export default class Item extends React.PureComponent {
     this.freshList(nextProps.match.params.bgmid, false);
   }
   freshList(bgmid) {
-    fetch(`//127.0.0.1:3000/search/similarity/${bgmid}?page=1`, { mode: 'cors' })
+    fetch(`${CONFIG.host}/search/similarity/${bgmid}?page=1`, { mode: 'cors' })
     .then(res => res.json())
     .then(data => this.setState({ list: data.items, similarities: data.similarities, page: 1, ended: data.ended }))
     .then(() => document.body.scrollTop = 0)
@@ -32,7 +34,7 @@ export default class Item extends React.PureComponent {
     const bgmid = this.props.match.params.bgmid;
     const { list, similarities, page } = this.state;
 
-    return fetch(`//127.0.0.1:3000/search/similarity/${bgmid}?page=${page + 1}`, { mode: 'cors' })
+    return fetch(`${CONFIG.host}/search/similarity/${bgmid}?page=${page + 1}`, { mode: 'cors' })
     .then(res => res.json())
     .then(data => this.setState({
       list: [...list, ...data.items],
@@ -45,6 +47,7 @@ export default class Item extends React.PureComponent {
     return (
       <main>
         <div className='itemlistbox'>
+          <ItemDetail bgmid={this.props.match.params.bgmid} />
           <ItemList
           head='你可能会喜欢（按相似度倒序排列）：'
           list={this.state.list}

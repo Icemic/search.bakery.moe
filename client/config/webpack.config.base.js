@@ -70,11 +70,5 @@ module.exports = {
       minChunks: Infinity,
       filename: '[name].js'
     }),
-  ],
-  devServer: {
-    contentBase: 'client/static/',
-    historyApiFallback: true,
-    hot: true,
-    // publicPath: "/assets/",
-  }
+  ]
 };

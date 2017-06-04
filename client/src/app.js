@@ -47,7 +47,7 @@ class App extends React.PureComponent {
   }
   render() {
     return (
-      <DocumentTitle title={this.state.title + '面包推荐'}>
+      <DocumentTitle title={this.state.title + '面包番组推荐 Alpha'}>
       <Router history={history}>
           <div>
             <ul>

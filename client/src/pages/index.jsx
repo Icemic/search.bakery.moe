@@ -5,6 +5,7 @@ import './index.less';
 import Search from '../components/search';
 import ItemList from '../components/itemList';
 import { dispatch } from '../utils/store';
+import CONFIG from '../utils/config';
 
 export default class Index extends React.PureComponent {
   constructor(props) {
@@ -27,7 +28,7 @@ export default class Index extends React.PureComponent {
     }
   }
   freshList(value) {
-    fetch(`//127.0.0.1:3000/search/keywords/${encodeURIComponent(value)}?page=1`, { mode: 'cors' })
+    fetch(`${CONFIG.host}/search/keywords/${encodeURIComponent(value)}?page=1`, { mode: 'cors' })
     .then(res => res.json())
     .then(data => this.setState({ list: data.items, page: 1, ended: data.ended }))
     .then(() => document.body.scrollTop = 0)
@@ -37,7 +38,7 @@ export default class Index extends React.PureComponent {
     const value = this.props.match.params.search;
     const { list, page } = this.state;
 
-    return fetch(`//127.0.0.1:3000/search/keywords/${encodeURIComponent(value)}?page=${page + 1}`, { mode: 'cors' })
+    return fetch(`${CONFIG.host}/search/keywords/${encodeURIComponent(value)}?page=${page + 1}`, { mode: 'cors' })
     .then(res => res.json())
     .then(data => this.setState({
       list: [...list, ...data.items],

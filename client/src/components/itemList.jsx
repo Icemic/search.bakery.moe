@@ -52,7 +52,7 @@ export default class ItemList extends React.PureComponent {
               <p className='alias'>{item.alias.join(' | ')}</p>
               <p className='episode'>集数：{item.episode}</p>
               <p className='rank'>评分：{'★★★★★★★★★★☆☆☆☆☆☆☆☆☆☆'.substr(10 - Math.round(item.rank), 10)} {item.rank.toFixed(1)}</p>
-              <p className='meta'>共 {item.meta.views} 人浏览了该游戏，{item.meta.stars} 人喜欢</p>
+              <p className='meta'>共 {item.meta.views} 人浏览，{item.meta.stars} 人喜欢</p>
             </div>
           </div>
         </li>

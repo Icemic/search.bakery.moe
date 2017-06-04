@@ -1,0 +1,114 @@
+div.itemDetail {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  // width: 8rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+
+  img {
+    flex: none;
+    width: 4rem;
+    height: 5.33rem;
+    object-fit: cover;
+  }
+
+  div.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    margin-left: 0.24rem;
+
+    & > p {
+      flex: none;
+
+      i {
+        display: inline;
+        margin-right: 0.05rem;
+        padding: 0.03rem 0.05rem;
+        border-radius: 0.02rem;
+        font-size: 0.22rem;
+        font-style: normal;
+        line-height: 0.40rem;
+        vertical-align: middle;
+        color: #fff;
+      }
+      i.type {
+        background-color: #d19a66;
+      }
+      i.episode {
+        background-color: #61afef;
+      }
+    }
+    h3 {
+      flex: none;
+      font-size: 0.30rem;
+      font-weight: 200;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    div.detail {
+      flex: none;
+    }
+
+    p.alias {
+      flex: none;
+      margin-top: 0.18rem;
+      font-size: 0.24rem;
+      // font-weight: 200;
+      line-height: 1.5;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 7rem;
+      overflow: hidden;
+      // vertical-align: middle;
+      color: rgba(0, 0, 0, 0.6);
+    }
+    p.alias ~ p.alias {
+      margin-top: 0;
+    }
+
+    @media only screen and (max-width: 768px) {
+      h3, p.alias {
+        max-width: 5rem;
+      }
+    }
+
+    a.bgmlink {
+      font-size: 0.24rem;
+      height: 0.5rem;
+      line-height: 0.5rem;
+      text-align: center;
+      vertical-align: middle;
+      color: rgba(0, 0, 0, 0.6);
+      outline: none;
+      user-select: none;
+      border-radius: 0.02rem;
+      background-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0.02rem 0.02rem 0 rgba(0,0,0,0.16), 0 0 0 0.01rem rgba(0,0,0,0.08);
+      transition: box-shadow 300ms ease-out;
+
+      &:hover {
+        box-shadow: 0 0.03rem 0.08rem 0 rgba(0,0,0,0.3), 0 0 0 0.01rem rgba(0,0,0,0.08);
+      }
+    }
+
+    p.rank {
+      font-size: 0.24rem;
+      // font-weight: 200;
+      line-height: 1.5;
+      // vertical-align: middle;
+      color: rgba(0, 0, 0, 0.6);
+    }
+    p.meta {
+      font-size: 0.24rem;
+      // font-weight: 200;
+      line-height: 1.5;
+      // vertical-align: middle;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+}

@@ -2,6 +2,7 @@ div.itemList {
   display: block;
   position: relative;
   width: 8rem;
+  margin: 0 auto;
 
   h3 {
     font-size: 0.30rem;
@@ -25,11 +26,11 @@ div.itemList {
 
     &.slidetop-enter, &.slidetop-appear {
       opacity: 0;
-      left: -0.3rem;
+      // left: -0.3rem;
     }
     &.slidetop-enter.slidetop-enter-active, &.slidetop-appear.slidetop-appear-active {
       opacity: 1;
-      left: 0;
+      // left: 0;
       transition-property: opacity, left;
       transition-duration: 500ms;
       transition-timing-function: ease-in;
@@ -98,7 +99,7 @@ div.itemList {
       i.type {
         display: inline;
         margin-right: 0.05rem;
-        padding: 0.03rem 0.05rem;
+        padding: 0 0.05rem;
         border-radius: 0.02rem;
         background-color: #d19a66;
         font-size: 0.22rem;
@@ -131,6 +132,7 @@ div.itemList {
         // vertical-align: middle;
         color: rgba(0, 0, 0, 0.6);
       }
+
       p.episode {
         font-size: 0.24rem;
         // font-weight: 200;
@@ -160,6 +162,7 @@ div.itemList {
     height: 0.5rem;
     outline: none;
     cursor: pointer;
+    border-radius: 0.02rem;
     box-shadow: 0 0.02rem 0.02rem 0 rgba(0,0,0,0.26), 0 0 0 0.01rem rgba(0,0,0,0.08);
     transition: box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
     background-color: #fff;
