@@ -1,0 +1,43 @@
+{
+  "name": "面包番组推荐",
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ffbebe",
+  "background_color": "#eee",
+  "orientation": "portrait",
+  "description": "基于 Bangumi.tv 用户评分数据的番组推荐系统。",
+  "author": "Icemic",
+  "keywords": "",
+  "version_code": 1,
+  "version_name": "1.0.0",
+  "package_id": "moe.bakery.search",
+  "android_keep_screen_on": true,
+  "android_permissions": [
+    "ACCESS_NETWORK_STATE",
+    "ACCESS_WIFI_STATE",
+    "INTERNET"
+  ],
+  "icons": [
+    {
+      "src": "icon32.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "icon128.png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "icon192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "icon512.png",
+      "sizes": "512x512"
+    }
+  ]
+}
