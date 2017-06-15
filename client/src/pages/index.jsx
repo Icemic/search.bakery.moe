@@ -1,5 +1,4 @@
 import React from 'react'
-import DocumentTitle from 'react-document-title';
 import './index.less';
 
 import Search from '../components/search';
@@ -32,7 +31,7 @@ export default class Index extends React.PureComponent {
     .then(res => res.json())
     .then(data => this.setState({ list: data.items, page: 1, ended: data.ended }))
     .then(() => document.body.scrollTop = 0)
-    .then(() => dispatch('title', { value, page: 'search' }));
+    .then(() => dispatch('title', { value: `搜索 ${value}`, page: 'search' }));
   }
   loadNextPage() {
     const value = this.props.match.params.search;

@@ -50,3 +50,13 @@ div#app {
   width: 100%;
   min-height: 100%;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.5rem;
+  min-height: calc(100vh - 2.5rem);
+  background: linear-gradient(170deg, #ffbebe 0%, #ffbebe 59.98%, #FFdddd 59.99%, transparent 60%, transparent 100%);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+}

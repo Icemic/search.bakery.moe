@@ -19,7 +19,7 @@ async function getIterator(ids, matrix) {
   const featureMatrix = await csvParse(matrixData, {
     auto_parse: true,
     comment: '#',
-    delimiter: ' ',
+    delimiter: ',',
     trim: true,
     skip_lines_with_empty_values: true
   });
@@ -36,14 +36,18 @@ function *loaderGenerator(idList, featureMatrix) {
 
     const alias = [];
     for (const name of _alias) {
-      if (name && name.trim()) {
-        alias.push(name);
+      try {
+        if (name && name.trim()) {
+          alias.push(name);
+        }
+      } catch (e) {
+        alias.push(`${name}`);
       }
     }
 
     const vector = featureMatrix[i];
     const keywords = [...new Set(jieba.cutForSearch(alias.join(' ').toUpperCase(), true))];
-    vector.shift();
+    // vector.shift();
     yield {
       title: hanTitle || originTitle,
       alias,

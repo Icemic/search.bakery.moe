@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server-dev": "nodemon server/server.js --watch server",
+    "server-dev": "NODE_ENV=development nodemon server/server.js --watch server",
+    "server-prod": "NODE_ENV=production nodemon server/server.js --watch server",
     "client-dev": "webpack-dev-server --config client/config/webpack.config.dev.js --hot",
     "client-build": "webpack -p --config client/config/webpack.config.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +14,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "compute-cosine-similarity": "^1.0.0",
     "csv-parse": "^1.2.0",
     "history": "^4.6.1",
     "ioredis": "^3.0.0",
@@ -29,6 +29,7 @@
     "nodejieba": "^2.2.5",
     "nodemon": "^1.11.0",
     "normalize.css": "^7.0.0",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-document-title": "^2.0.3",
     "react-dom": "^15.5.4",
@@ -37,6 +38,7 @@
     "react-transition-group": "^1.1.3",
     "redux": "^3.6.0",
     "redux-devtools": "^3.4.0",
+    "talisman": "^0.19.1",
     "thenify": "^3.3.0",
     "through2": "^2.0.3",
     "whatwg-fetch": "^2.0.3"

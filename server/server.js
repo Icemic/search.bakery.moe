@@ -111,6 +111,8 @@ logger.info('Server starting...');
     ctx.body = `404 Not Found!\n${ctx.method.toUpperCase()} ${ctx.url}`;
   });
 
+  app.proxy = true;
+
   app.listen(CONFIG.port);
 
   logger.info(`Server is running at port ${CONFIG.port}`);

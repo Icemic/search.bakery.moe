@@ -1102,29 +1102,6 @@ compression@^1.5.2:
     on-headers "~1.0.1"
     vary "~1.1.0"
 
-compute-cosine-similarity@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/compute-cosine-similarity/-/compute-cosine-similarity-1.0.0.tgz#29f2bf2e7baefa231caba40591a31c17b19a4e95"
-  dependencies:
-    compute-dot "^1.1.0"
-    compute-l2norm "^1.1.0"
-    validate.io-array "^1.0.5"
-    validate.io-function "^1.0.2"
-
-compute-dot@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/compute-dot/-/compute-dot-1.1.0.tgz#01a5ba2c7af73b99002acb258459c9576a8232dc"
-  dependencies:
-    validate.io-array "^1.0.3"
-    validate.io-function "^1.0.2"
-
-compute-l2norm@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/compute-l2norm/-/compute-l2norm-1.1.0.tgz#bd09131c6b36c8d70c68334e176009a4e0a989ac"
-  dependencies:
-    validate.io-array "^1.0.3"
-    validate.io-function "^1.0.2"
-
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
@@ -2626,7 +2603,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.8.2:
+lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.6.1, lodash@^4.8.2:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -2637,6 +2614,10 @@ log4js@^1.1.1:
     debug "^2.2.0"
     semver "^5.3.0"
     streamroller "^0.4.0"
+
+long@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/long/-/long-3.2.0.tgz#d821b7138ca1cb581c172990ef14db200b5c474b"
 
 longest@^1.0.1:
   version "1.0.1"
@@ -2753,6 +2734,10 @@ mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+mnemonist@^0.10.0:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/mnemonist/-/mnemonist-0.10.2.tgz#9732a679f1e484bd5223bf14cbf86d9b1d03649b"
 
 mongodb-core@2.1.10:
   version "2.1.10"
@@ -2988,6 +2973,10 @@ object.omit@^2.0.0:
     for-own "^0.1.4"
     is-extendable "^0.1.1"
 
+obliterator@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/obliterator/-/obliterator-1.2.0.tgz#897202700f8bc942974f6f1762b1cd93a9c0e87b"
+
 obuf@^1.0.0, obuf@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.1.tgz#104124b6c602c6796881a042541d36db43a5264e"
@@ -3066,6 +3055,10 @@ package-json@^1.0.0:
 pako@~0.2.0:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/pako/-/pako-0.2.9.tgz#f3f7522f4ef782348da8161bad9ecfd51bf83a75"
+
+pandemonium@^1.0.2:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/pandemonium/-/pandemonium-1.1.0.tgz#bb48b8e424623f7ef5a639ff1e52baeed651f241"
 
 parse-asn1@^5.0.0:
   version "5.1.0"
@@ -4284,6 +4277,17 @@ symbol-observable@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.4.tgz#29bf615d4aa7121bdd898b22d4b3f9bc4e2aa03d"
 
+talisman@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/talisman/-/talisman-0.19.1.tgz#e2643e66a8515767e0ac1ae5465d0590f0affc37"
+  dependencies:
+    html-entities "^1.2.0"
+    lodash "^4.6.1"
+    long "^3.1.0"
+    mnemonist "^0.10.0"
+    obliterator "^1.2.0"
+    pandemonium "^1.0.2"
+
 tapable@^0.2.5, tapable@~0.2.5:
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.2.6.tgz#206be8e188860b514425375e6f1ae89bfb01fd8d"
@@ -4491,14 +4495,6 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
-
-validate.io-array@^1.0.3, validate.io-array@^1.0.5:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/validate.io-array/-/validate.io-array-1.0.6.tgz#5b5a2cafd8f8b85abb2f886ba153f2d93a27774d"
-
-validate.io-function@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/validate.io-function/-/validate.io-function-1.0.2.tgz#343a19802ed3b1968269c780e558e93411c0bad7"
 
 value-equal@^0.2.0:
   version "0.2.1"

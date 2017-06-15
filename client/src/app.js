@@ -14,6 +14,9 @@ import { subscribe, unsubscribe, register } from './utils/store';
 import './app.css';
 import Index from './pages/index.jsx';
 import Item from './pages/item.jsx';
+import About from './pages/about.jsx';
+import Header from './components/header';
+import Footer from './components/footer';
 
 register('title', (state, action) => {
   const { value, page } = action;
@@ -48,17 +51,18 @@ class App extends React.PureComponent {
   render() {
     return (
       <DocumentTitle title={this.state.title + '面包番组推荐 Alpha'}>
-      <Router history={history}>
+        <Router history={history}>
           <div>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-            </ul>
+            <Header />
 
             <Route exact path="/" component={Index}/>
             <Route path="/search/:search" component={Index}/>
             <Route path='/item/:bgmid' component={Item}/>
+            <Route path="/about" component={About}/>
+
+            <Footer />
           </div>
-      </Router>
+        </Router>
       </DocumentTitle>
     );
   };

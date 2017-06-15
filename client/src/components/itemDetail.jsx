@@ -28,7 +28,10 @@ export default class ItemList extends React.PureComponent {
   freshDetail(bgmid) {
     fetch(`${CONFIG.host}/search/item/${bgmid}`, { mode: 'cors' })
     .then(res => res.json())
-    .then(data => this.setState({ ...data, loaded: true }));
+    .then(data => {
+      this.setState({ ...data, loaded: true });
+      this.props.onDetail && this.props.onDetail(data);
+    });
   }
   render() {
     return (
@@ -42,7 +45,7 @@ export default class ItemList extends React.PureComponent {
           <a className='bgmlink' target='_blank' href={`https://bgm.tv/subject/${this.state.bgmid}`}>浏览 bgm.tv 页面</a>
           <div className='detail'>
             <p className='rank'>评分：{'★★★★★★★★★★☆☆☆☆☆☆☆☆☆☆'.substr(10 - Math.round(this.state.rank), 10)} {this.state.rank.toFixed(1)}</p>
-            <p className='meta'>共 {this.state.meta.views} 人浏览，{this.state.meta.stars} 人喜欢</p>
+            <p className='meta'>已有共 {this.state.meta.views} 次浏览</p>
           </div>
         </div>
       </div> : <p>加载中...</p>

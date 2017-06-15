@@ -11,7 +11,8 @@ export default class ItemList extends React.PureComponent {
     super(props);
 
     this.state = {
-      loading: false
+      loading: false,
+      stared: []
     };
   }
   handleClick(e) {
@@ -33,8 +34,23 @@ export default class ItemList extends React.PureComponent {
     }
     // e.stopPropagation();
   }
+  async handleStar(e) {
+    e.stopPropagation();
+
+    const targetId = parseInt(e.target.getAttribute('data-bgmid'));
+    if (this.state.stared.includes(targetId)) {
+      return;
+    }
+    this.props.onStar && await this.props.onStar(targetId);
+
+    // 注意：此处无论是否有 onStar 传入，点击状态都会改变
+    this.setState({
+      stared: [targetId, ...this.state.stared]
+    });
+  }
   render() {
     const similarities = this.props.similarities || [];
+    const stars = this.props.stars || null;
     if (this.props.list && this.props.list.length) {
 
       // const prevList = this.prevList || [];
@@ -52,7 +68,7 @@ export default class ItemList extends React.PureComponent {
               <p className='alias'>{item.alias.join(' | ')}</p>
               <p className='episode'>集数：{item.episode}</p>
               <p className='rank'>评分：{'★★★★★★★★★★☆☆☆☆☆☆☆☆☆☆'.substr(10 - Math.round(item.rank), 10)} {item.rank.toFixed(1)}</p>
-              <p className='meta'>共 {item.meta.views} 人浏览，{item.meta.stars} 人喜欢</p>
+              <p className='meta'>已有 {item.meta.views} 次浏览{ stars && `，${(stars[item.bgmid] || 0) + (this.state.stared.includes(item.bgmid) ? 1 : 0)} 人觉得准确`}{stars && <span>| <button data-bgmid={item.bgmid} onClick={this.handleStar.bind(this)}><img src={`/images/${this.state.stared.includes(item.bgmid) ? 'liked' : 'like'}.svg`} />准确</button></span>}</p>
             </div>
           </div>
         </li>

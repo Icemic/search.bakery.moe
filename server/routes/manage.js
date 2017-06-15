@@ -7,7 +7,7 @@ const route = new Router();
 
 route.get('/import', async (ctx, next) => {
   const ids = path.resolve(__dirname, '../metaInfo.txt');
-  const matrix = path.resolve(__dirname, '../trained_X.mat');
+  const matrix = path.resolve(__dirname, '../trained_X.csv');
   const ite = await importer(ids, matrix);
 
   try {
