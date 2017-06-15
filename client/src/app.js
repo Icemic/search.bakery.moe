@@ -22,12 +22,7 @@ import Footer from './components/footer';
 register('title', (state, action) => {
   const { value, page } = action;
 
-  if (page === 'search') {
-    return value ? `搜索\`${value}\` - ` : '';
-  } else if (page === 'item') {
-    return `${value} - `;
-  }
-  return action.value;
+  return `${value} - `;
 });
 
 ReactGA.initialize('UA-101128351-1');
