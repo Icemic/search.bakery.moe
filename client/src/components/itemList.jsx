@@ -37,7 +37,14 @@ export default class ItemList extends React.PureComponent {
   async handleStar(e) {
     e.stopPropagation();
 
-    const targetId = parseInt(e.target.getAttribute('data-bgmid'));
+    let targetId;
+
+    if (e.target.tagName.toUpperCase() === 'IMG') {
+      targetId = parseInt(e.target.parentNode.getAttribute('data-bgmid'));
+    } else {
+      targetId = parseInt(e.target.getAttribute('data-bgmid'));
+    }
+
     if (this.state.stared.includes(targetId)) {
       return;
     }
