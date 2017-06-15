@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import history from './utils/history';
 
 import DocumentTitle from 'react-document-title';
@@ -29,7 +30,29 @@ register('title', (state, action) => {
   return action.value;
 });
 
-class App extends React.PureComponent {
+ReactGA.initialize('UA-101128351-1');
+ReactGA.plugin.require('displayfeatures');
+
+const withTracker = (WrappedComponent) => {
+  const trackPage = (page) => {
+    ReactGA.set({ page });
+    ReactGA.pageview(page);
+    _czc && _czc.push(["_trackPageview", page]);
+  };
+
+  const HOC = (props) => {
+    const page = props.location.pathname + props.location.search;
+    trackPage(page);
+
+    return (
+      <WrappedComponent {...props} />
+    );
+  };
+
+  return HOC;
+};
+
+class WindowTitle extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -49,24 +72,25 @@ class App extends React.PureComponent {
     this.setState({ title })
   }
   render() {
-    return (
-      <DocumentTitle title={this.state.title + '面包番组推荐 Alpha'}>
-        <Router history={history}>
-          <div>
-            <Header />
-
-            <Route exact path="/" component={Index}/>
-            <Route path="/search/:search" component={Index}/>
-            <Route path='/item/:bgmid' component={Item}/>
-            <Route path="/about" component={About}/>
-
-            <Footer />
-          </div>
-        </Router>
-      </DocumentTitle>
-    );
-  };
+    return <DocumentTitle title={this.state.title + '面包番组推荐 Alpha'} />
+  }
 }
+
+const App = () => (
+  <Router history={history}>
+    <div>
+      <WindowTitle />
+      <Header />
+
+      <Route exact path="/" component={withTracker(Index)}/>
+      <Route path="/search/:search" component={withTracker(Index)}/>
+      <Route path='/item/:bgmid' component={withTracker(Item)}/>
+      <Route path="/about" component={withTracker(About)}/>
+
+      <Footer />
+    </div>
+  </Router>
+);
 
 
 ReactDOM.render( <App />,
