@@ -32,7 +32,7 @@ const withTracker = (WrappedComponent) => {
   const trackPage = (page) => {
     ReactGA.set({ page });
     ReactGA.pageview(page);
-    _czc && _czc.push(["_trackPageview", page]);
+    window._czc && window._czc.push(["_trackPageview", page]);
   };
 
   const HOC = (props) => {
