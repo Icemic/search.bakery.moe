@@ -75,8 +75,6 @@ logger.info('Server starting...');
   });
 
   // 
-  app.use(mount('/dist', static(path.resolve(__dirname, '../client/dist'))))
-  app.use(mount('/static', static(path.resolve(__dirname, '../client/static'))))
   app.use(bodyParser());
   app.use(cors());
 
@@ -95,7 +93,7 @@ logger.info('Server starting...');
       const router = require(item.path);
       const routerName = path.basename(item.path, '.js');
       if (router instanceof Router) {
-        rootRouter.use(`/${path.basename(item.path, '.js').replace('.', '/')}`, router.routes(), router.allowedMethods());
+        rootRouter.use(`/api/${path.basename(item.path, '.js').replace('.', '/')}`, router.routes(), router.allowedMethods());
         logger.info(`Load route ${routerName} success`);
       } else {
         logger.warn(`Load route ${routerName} failed, invalid router.`);
@@ -106,9 +104,14 @@ logger.info('Server starting...');
   });
   app.use(rootRouter.routes()).use(rootRouter.allowedMethods());
 
+  // app.use(mount('/dist', static(path.resolve(__dirname, '../client/dist'))))
+  app.use(mount('/', static(path.resolve(__dirname, '../client/static'))))
+
+
   app.use(async (ctx) => {
-    ctx.status = 404;
-    ctx.body = `404 Not Found!\n${ctx.method.toUpperCase()} ${ctx.url}`;
+    // ctx.status = 404;
+    // ctx.body = `404 Not Found!\n${ctx.method.toUpperCase()} ${ctx.url}`;
+    ctx.body = fs.readFileSync(path.resolve(__dirname, '../client/static', 'index.html'), 'utf8');
   });
 
   app.proxy = true;
