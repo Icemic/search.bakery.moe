@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:8
 
 COPY . .
 RUN yarn install && yarn run client-build
