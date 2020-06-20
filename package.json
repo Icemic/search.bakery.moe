@@ -23,7 +23,7 @@
     "koa-router": "^7.2.0",
     "koa-static": "^3.0.0",
     "log4js": "^1.1.1",
-    "mongoose": "^4.10.2",
+    "mongoose": "^5.7.5",
     "nodejieba": "^2.2.5",
     "talisman": "^0.19.1",
     "thenify": "^3.3.0",
