@@ -60,7 +60,7 @@
     "redux-devtools": "^3.4.0",
     "style-loader": "^0.18.1",
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5",
+    "webpack-dev-server": "^3.1.11",
     "webpack-merge": "^4.1.0",
     "whatwg-fetch": "^2.0.3"
   }
