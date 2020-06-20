@@ -105,13 +105,13 @@ logger.info('Server starting...');
   app.use(rootRouter.routes()).use(rootRouter.allowedMethods());
 
   // app.use(mount('/dist', static(path.resolve(__dirname, '../client/dist'))))
-  app.use(mount('/', static(path.resolve(__dirname, '../client/static'))))
+  app.use(mount('/', static(path.resolve(__dirname, '../static'))))
 
 
   app.use(async (ctx) => {
     // ctx.status = 404;
     // ctx.body = `404 Not Found!\n${ctx.method.toUpperCase()} ${ctx.url}`;
-    ctx.body = fs.readFileSync(path.resolve(__dirname, '../client/static', 'index.html'), 'utf8');
+    ctx.body = fs.readFileSync(path.resolve(__dirname, '../static', 'index.html'), 'utf8');
   });
 
   app.proxy = true;
