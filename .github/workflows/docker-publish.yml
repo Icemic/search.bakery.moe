@@ -15,7 +15,7 @@ on:
 
 env:
   # TODO: Change variable to your image's name.
-  IMAGE_NAME: index
+  IMAGE_NAME: anime-search-old
 
 jobs:
   # Run tests.
